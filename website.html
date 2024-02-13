@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Scheduler</title>
+    <link rel="stylesheet" href="Calendar.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Nheaderstyle.css">
+    <link rel="stylesheet" href="NoteTaking.css">z
+    <script src="Calendar.js" defer></script>
+
+
+
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+    body {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f5f5f5;
+    }
+
+    .header .logo {
+      font-size: 25px;
+      font-family: 'Sriracha', cursive;
+      color: #000;
+      text-decoration: none;
+      margin-left: 30px;
+    }
+
+.nav-items {
+    list-style: none; 
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+.nav-items a {
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 520px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .intro h1 {
+      font-family: sans-serif;
+      font-size: 60px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .intro p {
+      font-size: 20px;
+      color: #d1d1d1;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    .intro button {
+      background-color: #5edaf0;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+    }
+
+    .achievements {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 80px;
+    }
+
+    .achievements .work {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .achievements .work i {
+      width: fit-content;
+      font-size: 50px;
+      color: #333333;
+      border-radius: 50%;
+      border: 2px solid #333333;
+      padding: 12px;
+    }
+
+    .achievements .work .work-heading {
+      font-size: 20px;
+      color: #333333;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .achievements .work .work-text {
+      font-size: 15px;
+      color: #585858;
+      margin: 10px 0;
+    }
+
+    .Notes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 80px;
+      border-top: 2px solid #eeeeee;
+    }
+
+    .Notes img {
+      width: 500px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .Notes-text h2 {
+      font-size: 30px;
+      color: #333333;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .Notes-text p {
+      font-size: 15px;
+      color: #585858;
+      margin: 10px 0;
+    }
+
+        .table-container {
+    max-height: 300px; 
+    overflow: auto; 
+    position: relative;
+        }
+
+        #deadlineTable {
+            border-collapse: collapse;
+            width: 100%;
+    
+        }
+
+        #deadlineTable th, #deadlineTable td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+<header class="main-header">
+    <nav class="nav">
+        <a href="website.html" class="logo">Scheduler</a>
+        <ul class="nav-items">
+            <li><a href="NoteTaking.html">Note Taking</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="intro">
+        <h1>Scheduler</h1>
+        <p>Remember to finish your Assignments on time</p>
+    </div>
+
+    <div class="achievements">
+        <div class="work">
+            <div id="calendar-container">
+                <body class="light">
+
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <span class="month-picker" id="month-picker">April</span>
+                        <div class="year-picker">
+                <span class="year-change" id="prev-year">
+                    <pre><</pre>
+                </span>
+                            <span id="year">2022</span>
+                            <span class="year-change" id="next-year">
+                    <pre>></pre>
+                </span>
+                        </div>
+                    </div>
+                    <div class="calendar-body">
+                        <div class="calendar-week-day">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days"></div>
+                    </div>
+
+                    <div class="month-list"></div>
+                </div>
+                </body>
+            </div>
+        </div>
+
+        <div class="work">
+            <p class="work-heading">Deadline Scheduler</p>
+            <form id="assignmentForm">
+                <input type="text" id="subjectInput" placeholder="Subject">
+                <select id="typeInput">
+                    <option value="Homework">Homework</option>
+                    <option value="Exam">Exam</option>
+                    <option value="Quiz">Quiz</option>
+                    <option value="Project">Project</option>
+                    <option value="Test">Test</option>
+                    <option value="IA">IA</option>
+                    <option value="EE">EE</option>
+                    <option value="Essay">Essay</option>
+
+
+                </select>
+                <input type="date" id="dateInput">
+                <button type="submit">Add Deadline</button>
+
+            </form>
+
+            <div class="table-container">
+                <table id="deadlineTable">
+
+                    <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Type of Deadline</th>
+                        <th>Date of Deadline</th>
+                        <th>Action</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button id="scrollDown">↓</button>
+            </div>
+
+        </div>
+        <script src="Deadline.js"></script>
+    </div>
+
+</main>
+</body>
+</html>
+
+
+
