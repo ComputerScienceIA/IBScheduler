@@ -34,10 +34,10 @@ function showNotes() {
 }
 
 function deleteNote(noteId) {
-    let confirmDelete = confirm("Are you sure you want to delete this note?");
+    let confirmDelete = confirm("Delete this note?");
     if (!confirmDelete) return;
-    notes.splice(noteId, 1); // Simply update the in-memory array
-    showNotes(); // Refresh the display
+    notes.splice(noteId, 1); 
+    showNotes();
 }
 
 function updateNote(noteId, title, desc) {
@@ -68,7 +68,7 @@ function addOrUpdateNote() {
     popupTitle.innerText = 'Add a new Note';
     popupBox.classList.remove('show');
 
-    showNotes(); // Refresh the display after adding or updating
+    showNotes(); 
 }
 
 addBox.addEventListener('click', () => {
@@ -91,5 +91,5 @@ closeIcon.addEventListener('click', () => {
 
 addBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    addOrUpdateNote(); // Call this function whether adding or updating
+    addOrUpdateNote(); 
 });
