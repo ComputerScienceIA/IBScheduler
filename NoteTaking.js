@@ -8,7 +8,6 @@ addBtn = document.querySelector('button ');
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-// Initialize notes array to keep notes in current session only
 let notes = [];
 
 let isUpdate = false, updateId;
